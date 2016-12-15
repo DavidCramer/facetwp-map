@@ -1,0 +1,76 @@
+.facetwp-sections {
+  width: 100%;
+}
+.facetwp-has-tabs > .facetwp-sections{
+  border-left: 1px solid #eee;
+  float: left;
+  margin-left: -1px; 
+  width: calc(100% - 181px);
+}
+.facetwp-has-tabs.facetwp-top-tabs > .facetwp-sections{
+  float: none;
+  width: 100%;
+  border: none;
+}
+#side-sortables .facetwp-sections{
+    float: none;
+    width: 100%;
+    border: none;
+}
+.facetwp-has-tabs .facetwp-section {
+  display: none;
+}
+.facetwp-has-tabs .facetwp-section[aria-hidden="false"] {
+  display: block;
+}
+.facetwp-section > h3 {
+
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0;
+  padding: 10px 12px;
+}
+
+.facetwp-has-tabs .facetwp-section-content{
+    padding: 8px 12px 8px;
+}
+
+.facetwp-section > .facetwp-section-content > .facetwp-control {
+  margin-bottom: 21px;
+}
+.facetwp-section > .facetwp-section-content > .facetwp-control-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+.facetwp-section > .facetwp-section-content > .facetwp-control-description {
+  color: #808080;
+  display: block;
+  font-style: oblique;
+  font-weight: 400;
+  margin-bottom: 3px;
+}
+
+.facetwp-section .page-title-action, .facetwp-section .page-title-action:active,
+.facetwp-title .page-title-action, .facetwp-title .page-title-action:active {
+    background: #f7f7f7 none repeat scroll 0 0;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: normal;
+    margin-left: 4px;
+    outline: 0 none;
+    padding: 4px 8px;
+    position: relative;
+    text-decoration: none;
+    text-shadow: none;
+    top: -3px;
+}
+
+@media only screen and ( max-width: 782px ), ( max-width: 980px ) and ( min-width: 851px ) {
+    .facetwp-has-tabs .facetwp-sections {
+      width: calc(100% - 48px);
+    }
+}
