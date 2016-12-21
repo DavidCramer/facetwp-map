@@ -47,7 +47,7 @@ class box extends panel implements \facetwp\data\save, \facetwp\data\load {
 	 */
 	public function init() {
 		// run parents to setup sanitization filters
-		$data = facetwp()->request_vars( 'post' );
+		$data = facetwp_map()->request_vars( 'post' );
 		if ( isset( $data[ 'facetwpNonce_' . $this->id() ] ) && wp_verify_nonce( $data[ 'facetwpNonce_' . $this->id() ], $this->id() ) ) {
 			$this->save_data();
 		} else {
@@ -145,7 +145,7 @@ class box extends panel implements \facetwp\data\save, \facetwp\data\load {
 	 */
 	public function set_attributes() {
 
-		$action = facetwp()->request_vars( 'server' );
+		$action = facetwp_map()->request_vars( 'server' );
 		$attributes = array(
 			'enctype'  => 'multipart/form-data',
 			'method'   => 'POST',

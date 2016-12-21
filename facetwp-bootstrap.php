@@ -34,6 +34,6 @@ if ( defined( 'WPINC' ) ) {
 	spl_autoload_register( 'facetwp_autoload_class', true, false );
 
 	// bootstrap plugin load
-	add_action( 'plugins_loaded', 'facetwp' );
+	add_action( 'plugins_loaded', 'facetwp_map' );
 
 }

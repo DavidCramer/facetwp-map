@@ -41,7 +41,7 @@ class control extends \facetwp\data\data {
 
 		$caller = get_called_class();
 		// get the current instance
-		if ( empty( $object['type'] ) || ! facetwp()->is_callable( 'control\\' . $object['type'] ) ) {
+		if ( empty( $object['type'] ) || ! facetwp_map()->is_callable( 'control\\' . $object['type'] ) ) {
 			$object['type'] = 'text';
 		}
 
@@ -63,7 +63,7 @@ class control extends \facetwp\data\data {
 		// run parents to setup sanitization filters
 		parent::setup();
 		$value = array( $this->slug, '' );
-		$data = facetwp()->request_vars( 'post' );
+		$data = facetwp_map()->request_vars( 'post' );
 		if ( ! empty( $this->struct['value'] ) ) {
 			$value[ $this->slug ] = $this->struct['value'];
 		}

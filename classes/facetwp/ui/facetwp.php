@@ -170,7 +170,7 @@ abstract class facetwp {
 	public function setup() {
 
 		foreach ( $this->struct as $struct_key => $sub_struct ) {
-			if ( is_array( $sub_struct ) && facetwp()->get_register_callback( $struct_key ) ) {
+			if ( is_array( $sub_struct ) && facetwp_map()->get_register_callback( $struct_key ) ) {
 				$this->process_child( $struct_key );
 			}
 		}
@@ -288,7 +288,7 @@ abstract class facetwp {
 	 * @return fwp_map|null
 	 */
 	public function __call( $type, $args ) {
-		$init  = facetwp()->get_register_callback( $type );
+		$init  = facetwp_map()->get_register_callback( $type );
 		$child = null;
 		if ( null !== $init ) {
 			$this->sanitize_slug( $args[0] );
@@ -356,7 +356,7 @@ abstract class facetwp {
 		do_action( 'facetwp_admin_enqueue_scripts' . $this->type, $this );
 
 		// push assets to ui manager
-		facetwp()->set_assets( $this->assets );
+		facetwp_map()->set_assets( $this->assets );
 		// done enqueuing - dpo inline or manual enqueue.
 		$this->set_active_styles();
 	}
