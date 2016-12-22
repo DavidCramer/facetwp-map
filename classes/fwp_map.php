@@ -25,7 +25,7 @@ class FWP_Map {
 	 *
 	 * @since   1.0.0
 	 *
-	 * @var     \uix\ui\page
+	 * @var     \facetwp_map\ui\page
 	 */
 	private $admin_page;
 
@@ -129,7 +129,7 @@ class FWP_Map {
 		$facets = FWP()->facet;
 		$data   = $this->admin_page->load_data();
 
-		if ( ! empty( $data['general']['result_count'] ) && 'all' == $data['general']['result_count'] && empty( $params['used_facets'] ) ) {
+		if ( ! empty( $data['general']['config']['result']['result_count'] ) && 'all' == $data['general']['config']['result']['result_count'] && empty( $params['used_facets'] ) ) {
 			$post_ids = $facets->query_args['post__in'];
 		} else {
 			// normals
@@ -147,7 +147,7 @@ class FWP_Map {
 	 */
 	private function location( $post_id ) {
 		$data   = $this->admin_page->load_data();
-		$location = get_post_meta( $post_id, $data['general']['location_field'], true );
+		$location = get_post_meta( $post_id, $data['general']['config']['result']['location_field'], true );
 		// has field
 		if ( empty( $location ) ) {
 			return false;

@@ -1,10 +1,10 @@
-var fwp_map = {};
+var FWP_MAP = {};
 
 (function() {
 
     jQuery( document ).ready( function( $ ){
 
-       $( document ).on('facetwp.init', function() {
+       $( document ).on('facetwp_map.init', function() {
            $('[data-default]').each(function () {
                 var field = $(this);
                 field.val(field.data('default'));
@@ -13,7 +13,7 @@ var fwp_map = {};
 
        $( window ).load( function() {
             // main init
-            $(document).trigger('facetwp.init');
+            $(document).trigger('facetwp_map.init');
         });
     });
 

@@ -86,9 +86,9 @@
 				baldrickRequests[opts.params.trigger.prop('id')].abort();
 			}
 			// log
-			if( facetwpApi ) {
+			if( facetwp_mapApi ) {
 				opts.request.beforeSend = function ( xhr ) {
-					xhr.setRequestHeader( 'X-WP-Nonce', facetwpApi.nonce );
+					xhr.setRequestHeader( 'X-WP-Nonce', facetwp_mapApi.nonce );
 				}
 			}
 			

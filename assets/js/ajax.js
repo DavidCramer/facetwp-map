@@ -1,24 +1,24 @@
 
-var facetwp_edit_state = false;
+var facetwp_map_edit_state = false;
 
 (function($){
 
-    $( document ).on( 'facetwp.init', init_facetwp_ajax );
+    $( document ).on( 'facetwp_map.init', init_facetwp_map_ajax );
 
-    function init_facetwp_ajax(){
+    function init_facetwp_map_ajax(){
         var spinner;
-        $('.facetwp-ajax').baldrick({
+        $('.facetwp_map-ajax').baldrick({
             'request': window.location.href,
             before : function( el, ev ){
                 if( spinner ){
                     spinner.remove();
                 }
-                spinner = $( '<span class="facetwp-ajax spinner"></span>' );
+                spinner = $( '<span class="facetwp_map-ajax spinner"></span>' );
                 if( ev.originalEvent && ev.originalEvent.explicitOriginalTarget ){
                     //$( ev.originalEvent.explicitOriginalTarget ).prop('disabled', 'disabled' ).addClass('disabled');
                     spinner.addClass('inline');
                 }
-                $(el).find('.facetwp-title').append( spinner );
+                $(el).find('.facetwp_map-title').append( spinner );
             },
             callback : function( obj, ev ){
 
@@ -35,7 +35,7 @@ var facetwp_edit_state = false;
                     spinner.remove();
                     obj.params.trigger.find('.ajax-triggered').removeClass('ajax-triggered');
                 }
-                facetwp_edit_state = false;
+                facetwp_map_edit_state = false;
             }
         });
     };
@@ -44,19 +44,19 @@ var facetwp_edit_state = false;
 
 
 
-        $('form.facetwp-ajax').each( function(){
+        $('form.facetwp_map-ajax').each( function(){
             var form = $( this );
             if( form.data('autosave') ){
-                $( document ).on('facetwp.save', function(){
+                $( document ).on('facetwp_map.save', function(){
                     form.trigger( 'submit' );
                 })
                 form.on('change', '[name]', function( e ){
                     $(this).addClass('ajax-triggered');
-                    $( document ).trigger('facetwp.save');
+                    $( document ).trigger('facetwp_map.save');
                 })
             }else{
                 form.on( 'change', '[name]', function(){
-                    facetwp_edit_state = true;
+                    facetwp_map_edit_state = true;
                 });
             }
 
@@ -70,7 +70,7 @@ var facetwp_edit_state = false;
 
     window.onbeforeunload = function(e) {
 
-        if( false === facetwp_edit_state ){ return; }
+        if( false === facetwp_map_edit_state ){ return; }
 
         var dialogText = 'confirm';
         e.returnValue = dialogText;

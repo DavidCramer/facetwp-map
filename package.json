@@ -1,9 +1,9 @@
 {
 	
-	"namespace"		: "facetwp",
+	"namespace"		: "facetwp_map",
 	"plugin_name"	: "FacetWP Map",
 	"description"	: "Generates a map alongside FacetWP results ",
-	"prefix"		: "fwp_map",
+	"prefix"		: "FWP_MAP",
 	"textdomain"	: "facetwp",
 	"version"		: "1.0.0",
 	"author"		: "David Cramer",

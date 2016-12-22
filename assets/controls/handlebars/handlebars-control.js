@@ -191,12 +191,12 @@ var conduitApp = {},
         }
 
         // sortables
-        if( $('.facetwp-sortable').length ){
-            $('.facetwp-sortable').each( function(){
+        if( $('.facetwp_map-sortable').length ){
+            $('.facetwp_map-sortable').each( function(){
                 var sort = $(this),
                     options = {
                         forcePlaceholderSize : true,
-                        placeholder: "facetwp-sortable-placeholder"
+                        placeholder: "facetwp_map-sortable-placeholder"
                     };
 
                 options = $.extend({}, options, sort.data() );
@@ -204,7 +204,7 @@ var conduitApp = {},
             });
         }
 
-        $(document).trigger('facetwp.init');
+        $(document).trigger('facetwp_map.init');
         $(window).trigger('modal.init');
     }
 
@@ -334,8 +334,8 @@ var conduitApp = {},
         var app = $(this).closest('[data-app]').data('app');
         conduitSyncData( app );
     });
-    $(document).on('click', '.facetwp-notice .notice-dismiss', function(){
-        var parent =  $( this ).closest( '.facetwp-notice' );
+    $(document).on('click', '.facetwp_map-notice .notice-dismiss', function(){
+        var parent =  $( this ).closest( '.facetwp_map-notice' );
         parent.slideUp(200, function(){
             parent.remove();
         });
@@ -374,7 +374,7 @@ var conduitApp = {},
 
         if( type !== 'delete' ){
             try{
-                data = clicked.closest('.facetwp-modal-wrap').getObject();
+                data = clicked.closest('.facetwp_map-modal-wrap').getObject();
             }catch (e){
                 return;
             }
@@ -410,11 +410,11 @@ var conduitApp = {},
             conduitBuildUI( active );
         }
     });
-    $(document).on('facetwp.itemsubmit', function(){
+    $(document).on('facetwp_map.itemsubmit', function(){
         conduitPrepObject();
     })
     // register apps
-    $( document ).on('facetwp.init', function(){
+    $( document ).on('facetwp_map.init', function(){
         conduitRegisterApps();
     } );
 

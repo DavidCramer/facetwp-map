@@ -3,10 +3,10 @@
     jQuery( function( $ ){
         $( document ).on( 'change', '.toggle-checkbox', function( e ){
             var clicked     = $( this ),
-                parent      = clicked.closest( '.facetwp-section-content' ),                
+                parent      = clicked.closest( '.facetwp_map-section-content' ),                
                 toggleAll   = parent.find( '[data-toggle-all="true"]' ),
-                allcount    = parent.find( '.facetwp-control .switch > input' ).not( toggleAll ).length,
-                tottlecount = parent.find( '.facetwp-control .switch > input:checked' ).not( toggleAll ).length;
+                allcount    = parent.find( '.facetwp_map-control .switch > input' ).not( toggleAll ).length,
+                tottlecount = parent.find( '.facetwp_map-control .switch > input:checked' ).not( toggleAll ).length;
 
             if( clicked.is(':checked') ){
                 clicked.parent().addClass( 'active' );
@@ -22,7 +22,7 @@
             }
 
         } );
-        $( document ).on( 'facetwp.init', function() {
+        $( document ).on( 'facetwp_map.init', function() {
             $('.toggle-checkbox').each( function(){
                 var box = $( this ),
                     val = box.data('value');
@@ -31,12 +31,12 @@
                     box.prop( 'checked', true ).data('value', null).parent().addClass('active');
                 }
             });
-            //$('.facetwp-control .toggle-checkbox').trigger('change');
+            //$('.facetwp_map-control .toggle-checkbox').trigger('change');
         });
         $( document ).on('change', '[data-toggle-all="true"]', function(e){
             var clicked = $( this ),
-                parent = clicked.closest( '.facetwp-section-content' );
-                parent.find('.facetwp-control .switch > input').not(this).prop('checked', this.checked).trigger('change');
+                parent = clicked.closest( '.facetwp_map-section-content' );
+                parent.find('.facetwp_map-control .switch > input').not(this).prop('checked', this.checked).trigger('change');
         });
 
     });

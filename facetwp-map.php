@@ -27,7 +27,7 @@ if ( ! version_compare( PHP_VERSION, '5.3.0', '>=' ) ) {
 	}
 }else{
 	//Includes and run
-	include_once FWP_MAP_PATH . 'facetwp-bootstrap.php';
+	include_once FWP_MAP_PATH . 'facetwp_map-bootstrap.php';
 	include_once FWP_MAP_PATH . 'classes/fwp_map.php';
 }
 

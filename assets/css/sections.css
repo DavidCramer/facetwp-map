@@ -1,29 +1,29 @@
-.facetwp-sections {
+.facetwp_map-sections {
   width: 100%;
 }
-.facetwp-has-tabs > .facetwp-sections{
+.facetwp_map-has-tabs > .facetwp_map-sections{
   border-left: 1px solid #eee;
   float: left;
   margin-left: -1px; 
   width: calc(100% - 181px);
 }
-.facetwp-has-tabs.facetwp-top-tabs > .facetwp-sections{
+.facetwp_map-has-tabs.facetwp_map-top-tabs > .facetwp_map-sections{
   float: none;
   width: 100%;
   border: none;
 }
-#side-sortables .facetwp-sections{
+#side-sortables .facetwp_map-sections{
     float: none;
     width: 100%;
     border: none;
 }
-.facetwp-has-tabs .facetwp-section {
+.facetwp_map-has-tabs .facetwp_map-section {
   display: none;
 }
-.facetwp-has-tabs .facetwp-section[aria-hidden="false"] {
+.facetwp_map-has-tabs .facetwp_map-section[aria-hidden="false"] {
   display: block;
 }
-.facetwp-section > h3 {
+.facetwp_map-section > h3 {
 
   font-size: 14px;
   line-height: 1.4;
@@ -31,19 +31,19 @@
   padding: 10px 12px;
 }
 
-.facetwp-has-tabs .facetwp-section-content{
+.facetwp_map-has-tabs .facetwp_map-section-content{
     padding: 8px 12px 8px;
 }
 
-.facetwp-section > .facetwp-section-content > .facetwp-control {
+.facetwp_map-section > .facetwp_map-section-content > .facetwp_map-control {
   margin-bottom: 21px;
 }
-.facetwp-section > .facetwp-section-content > .facetwp-control-label {
+.facetwp_map-section > .facetwp_map-section-content > .facetwp_map-control-label {
   display: block;
   font-weight: 600;
   margin-bottom: 3px;
 }
-.facetwp-section > .facetwp-section-content > .facetwp-control-description {
+.facetwp_map-section > .facetwp_map-section-content > .facetwp_map-control-description {
   color: #808080;
   display: block;
   font-style: oblique;
@@ -51,8 +51,8 @@
   margin-bottom: 3px;
 }
 
-.facetwp-section .page-title-action, .facetwp-section .page-title-action:active,
-.facetwp-title .page-title-action, .facetwp-title .page-title-action:active {
+.facetwp_map-section .page-title-action, .facetwp_map-section .page-title-action:active,
+.facetwp_map-title .page-title-action, .facetwp_map-title .page-title-action:active {
     background: #f7f7f7 none repeat scroll 0 0;
     border: 1px solid #ccc;
     border-radius: 2px;
@@ -70,7 +70,7 @@
 }
 
 @media only screen and ( max-width: 782px ), ( max-width: 980px ) and ( min-width: 851px ) {
-    .facetwp-has-tabs .facetwp-sections {
+    .facetwp_map-has-tabs .facetwp_map-sections {
       width: calc(100% - 48px);
     }
 }
