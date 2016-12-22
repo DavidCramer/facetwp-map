@@ -41,11 +41,18 @@
                 } else {
                     $('.prev-page, .first-page').show();
                 }
-                $('.snazzy-id-' + currentStyle).addClass('current-style').find('.facetwp-snazzy-apply').html('Current Style').prop('disabled', true );
+
             }
         });
     }
-
+    function init_handlers(){
+        if (key.val().length) {
+            snazzy_filters();
+        } else {
+            filters.html('');
+            container.html('');
+        }
+    }
     function snazzy_filters() {
         var filter_template = Handlebars.compile($('#snazzy-filters-tmpl').html());
 
@@ -54,8 +61,10 @@
             filters.html(filter_template(r));
             snazzy_handler();
             query = [];
-
-            $(document).off('facetwp_map.init', init_snazzy_nav);
+            if( !r.message ) {
+                $(document).off('facetwp_map.save', init_handlers);
+                $(document).off('facetwp_map.init', init_snazzy_nav);
+            }
         });
     }
 
@@ -75,14 +84,7 @@
         $('.current-page').val(1);
         snazzy_handler();
     });
-    $(document).on('facetwp_map.save', function () {
-        if (key.val().length) {
-            snazzy_filters();
-        } else {
-            filters.html('');
-            container.html('');
-        }
-    });
+    $(document).on('facetwp_map.save', init_handlers );
     $(document).on('click', '.facetwp-snazzy-apply', function () {
         var clicked = $(this),
             style = clicked.data('json');
@@ -94,7 +96,8 @@
         }
         clicked.html(clicked.data('text')).addClass('button-primary');
         stylebox.val(style).trigger('change');
-
+        $('.current-style').removeClass('current-style').find('.facetwp-snazzy-apply').removeClass('button-primary').html('Use Style').prop('disabled', false )
+        $('.snazzy-id-' + currentStyle).addClass('current-style').find('.facetwp-snazzy-apply').html('Current Style').prop('disabled', true );
     });
     $(document).on('click', '.pagination-links > a', function (e) {
         var clicked = $(this);
