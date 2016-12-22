@@ -1,8 +1,8 @@
 <?php
 /**
- * fwp_map Helper Functions
+ * FWP_MAP Helper Functions
  *
- * @package   facetwp
+ * @package   facetwp_map
  * @author    David Cramer
  * @license   GPL-2.0+
  * @copyright 2016 David Cramer
@@ -10,21 +10,21 @@
 
 
 /**
- * fwp_map Object class autoloader.
+ * FWP_MAP Object class autoloader.
  * It locates and finds class via classes folder structure.
  *
  * @since 1.0.0
  *
  * @param string $class class name to be checked and autoloaded
  */
-function facetwp_autoload_class( $class ) {
+function facetwp_map_autoload_class( $class ) {
 	$parts = explode( '\\', $class );
 	$name  = array_shift( $parts );
-	if ( file_exists( fwp_map_PATH . 'classes/' . $name ) ) {
+	if ( file_exists( FWP_MAP_PATH . 'classes/' . $name ) ) {
 		if ( ! empty( $parts ) ) {
 			$name .= '/' . implode( '/', $parts );
 		}
-		$class_file = fwp_map_PATH . 'classes/' . $name . '.php';
+		$class_file = FWP_MAP_PATH . 'classes/' . $name . '.php';
 		if ( file_exists( $class_file ) ) {
 			include_once $class_file;
 		}
@@ -32,7 +32,7 @@ function facetwp_autoload_class( $class ) {
 }
 
 /**
- * fwp_map Helper to minipulate the overall UI instance.
+ * FWP_MAP Helper to minipulate the overall UI instance.
  *
  * @since 1.0.0
  */
@@ -46,16 +46,16 @@ function facetwp_map() {
 	);
 
 	// init UI
-	return \facetwp\ui::get_instance( $request_data );
+	return \facetwp_map\ui::get_instance( $request_data );
 }
 
 /**
- * fwp_map Helper to minipulate the overall UI instance.
+ * FWP_MAP Helper to minipulate the overall UI instance.
  *
  * @since 1.0.0
  */
-function facetwp_share() {
+function facetwp_map_share() {
 	// init UI
-	return \facetwp\share\share::get_instance();
+	return \facetwp_map\share\share::get_instance();
 }
 
