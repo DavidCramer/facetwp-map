@@ -17,9 +17,10 @@ $settings = array(
 		'style' => array(
 			'section' => array(
 				'map'    => array(
-					'label'   => __( 'Map', 'facetwp' ),
-					'icon'    => 'dashicons-location-alt',
-					'control' => array(
+					'label'       => __( 'Map', 'facetwp' ),
+					'description' => __( 'Snazzy Maps Integration.', 'facetwp' ),
+					'icon'        => 'dashicons-location-alt',
+					'control'     => array(
 						'snazzy' => array(
 							'label'    => __( 'Select A Snazzy Map', 'facetwp' ),
 							'type'     => 'template',
@@ -30,7 +31,7 @@ $settings = array(
 							),
 						),
 						'styles' => array(
-							'label'       => __( 'Map Style', 'facetwp' ),
+							'label'       => __( 'Map Style Code', 'facetwp' ),
 							'description' => __( 'Manually Add style code.', 'facetwp' ),
 							'type'        => 'textarea',
 						),

@@ -10,17 +10,17 @@
 
 //echo '<img class="facetwp-snazzy-img" src="' . esc_attr( $style['imageUrl'] ) . '">';
 $value = $this->get_value();
-if ( empty( $value['api_key'] ) ) {
-	$value['api_key'] = '';
-}
+//if ( empty( $value['api_key'] ) ) {
+	$value['api_key'] = 'f8e179db-a2e1-467f-89ce-edd1fe21e06b';
+//}
 ?>
 <div class="facetwp_map-control">
-	<label for="fwp_map-general-config-map-api_key-control"><span
-			class="facetwp_map-control-label"><?php esc_html_e( 'Snazzy Maps API Key', 'facetwp' ); ?></span></label>
-	<input type="text" name="<?php echo esc_attr( $this->name() ); ?>[api_key]"
+	<?php /*<label for="fwp_map-general-config-map-api_key-control"><span
+			class="facetwp_map-control-label"><?php esc_html_e( 'Snazzy Maps API Key', 'facetwp' ); ?></span></label>*/ ?>
+	<input type="hidden" name="<?php echo esc_attr( $this->name() ); ?>[api_key]"
 	       value="<?php echo $value['api_key']; ?>" <?php echo $this->build_attributes(); ?>>
-	<span
-		class="facetwp_map-control-description"><?php echo __( 'Login / Register at <a href="https://snazzymaps.com" target="_blank">https://snazzymaps.com</a>. Click on your email address in the top right, and then the Developer tab. Just generate an API key and you\'ll be good to go! ', 'facetwp' ); ?></span>
+	<?php /*<span
+		class="facetwp_map-control-description"><?php echo __( 'Login / Register at <a href="https://snazzymaps.com" target="_blank">https://snazzymaps.com</a>. Click on your email address in the top right, and then the Developer tab. Just generate an API key and you\'ll be good to go! ', 'facetwp' ); ?></span> */ ?>
 </div>
 <div class="facetwp_map-snazzy">
 	<div id="facetwp_map-snazzy-filters"></div>
