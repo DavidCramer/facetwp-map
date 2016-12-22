@@ -20,14 +20,19 @@ $settings = array(
 					'label'   => __( 'Map', 'facetwp' ),
 					'icon'    => 'dashicons-location-alt',
 					'control' => array(
-						'map_style' => array(
-							'label'       => __( 'Map Style', 'facetwp' ),
-							'description' => __( 'Select the map style.', 'facetwp' ),
-							'type'        => 'select',
-							'choices'     => array(
-								'preset' => __( 'Preset', 'facetwp' ),
-								'manual' => __( 'Custom', 'facetwp' ),
+						'snazzy' => array(
+							'label'    => __( 'Select A Snazzy Map', 'facetwp' ),
+							'type'     => 'template',
+							'template' => FWP_MAP_PATH . 'includes/snazzy.php',
+							'script'   => array(
+								'handlebars' => FWP_MAP_URL . 'assets/js/handlebars-latest.min.js',
+								'snazzy'     => FWP_MAP_URL . 'assets/js/snazzy.js',
 							),
+						),
+						'styles' => array(
+							'label'       => __( 'Map Style', 'facetwp' ),
+							'description' => __( 'Manually Add style code.', 'facetwp' ),
+							'type'        => 'textarea',
 						),
 					),
 				),

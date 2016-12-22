@@ -7,6 +7,7 @@ function facetwpMapInit() {
             content: ''
         });
     }
+
     // Add markers to the map.
     facetwp_markers = FWP.settings.map.locations.map(function (location, i) {
         //location.animation = google.maps.Animation.DROP;
@@ -21,7 +22,7 @@ function facetwpMapInit() {
         bounds.extend(marker.position);
         return marker;
     });
-    if (typeof MarkerClusterer !== 'undefined' && FWP.settings.map.config.general.group_markers) {
+    if (typeof MarkerClusterer !== 'undefined' && FWP.settings.map.config.group_markers) {
 
         // Add a marker clusterer to manage the markers.
         facetwp_markerCluster = new MarkerClusterer(facetwp_map, facetwp_markers,
@@ -33,6 +34,10 @@ function facetwpMapInit() {
     }
 
     facetwp_map.fitBounds(bounds);
+
+    // set options
+    facetwp_map.setOptions( FWP.settings.map.init );
+    console.log( FWP.settings.map.init );
 
 }
 
@@ -51,7 +56,7 @@ function facetwpMapReset() {
 }
 
 
-jQuery( function ($) {
+jQuery(function ($) {
     $(document).on('facetwp-loaded', function () {
         facetwpMapInit();
     });

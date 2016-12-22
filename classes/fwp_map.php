@@ -102,10 +102,11 @@ class FWP_Map {
 	 */
 	public function locations_data( $return, $params ) {
 
-		$post_ids                  = $this->ids();
-		$data                      = $this->admin_page->load_data();
+		$post_ids = $this->ids();
+
 		$return['settings']['map'] = array(
-			'config'    => $data,
+			'config'    => $this->map_config(),
+			'init'      => $this->map_init(),
 			'locations' => array(),
 		);
 		foreach ( $post_ids as $post_id ) {
@@ -140,13 +141,39 @@ class FWP_Map {
 	}
 
 	/**
+	 * get general map config
+	 *
+	 * @since 1.0.0
+	 *
+	 */
+	private function map_config() {
+		$data = $this->admin_page->load_data();
+
+		return apply_filters( 'facetwp_map_config_args', $data['general']['config']['map'] );
+	}
+
+	/**
+	 * get display/init map config
+	 *
+	 * @since 1.0.0
+	 *
+	 */
+	private function map_init() {
+		$data = $this->admin_page->load_data();
+		// convert styles json
+		$data['display']['style']['map']['styles'] = json_decode( $data['display']['style']['map']['styles'] );
+
+		return apply_filters( 'facetwp_map_init_args', $data['display']['style']['map'] );
+	}
+
+	/**
 	 * check if has valid location
 	 *
 	 * @since 1.0.0
 	 *
 	 */
 	private function location( $post_id ) {
-		$data   = $this->admin_page->load_data();
+		$data     = $this->admin_page->load_data();
 		$location = get_post_meta( $post_id, $data['general']['config']['result']['location_field'], true );
 		// has field
 		if ( empty( $location ) ) {
@@ -168,18 +195,6 @@ class FWP_Map {
 	}
 
 	/**
-	 * Get the content for a post
-	 *
-	 * @since 1.0.0
-	 *
-	 */
-	private function get_content( $post_id ) {
-		$html = '<div id="fwpm-infobox"><h1 class="fwpm-infobox-title">' . get_the_title( $post_id ) . '</h1><div class="facetwp-infobox-content">' . get_the_excerpt( $post_id ) . '</div></div>';
-
-		return apply_filters( 'facetwp_map_marker_html', $html, $post_id );
-	}
-
-	/**
 	 * get post marker structure
 	 *
 	 * @since 1.0.0
@@ -193,6 +208,18 @@ class FWP_Map {
 		);
 
 		return apply_filters( 'facetwp_map_marker_args', $base, $post_id );
+	}
+
+	/**
+	 * Get the content for a post
+	 *
+	 * @since 1.0.0
+	 *
+	 */
+	private function get_content( $post_id ) {
+		$html = '<div id="fwpm-infobox"><h1 class="fwpm-infobox-title">' . get_the_title( $post_id ) . '</h1><div class="facetwp-infobox-content"></div></div>';
+
+		return apply_filters( 'facetwp_map_marker_html', $html, $post_id );
 	}
 
 	/**
@@ -278,15 +305,17 @@ class FWP_Map {
 					),
 				),
 			),
-			'section'    => array(
-				'general' => include FWP_MAP_PATH . 'settings/general.php',
-				'display' => include FWP_MAP_PATH . 'settings/display.php',
+			'style'     => array(
+				'admin' => FWP_MAP_URL . 'assets/css/admin.css',
 			),
+			'section'    => array(
+			'general' => include FWP_MAP_PATH . 'settings/general.php',
+			'display' => include FWP_MAP_PATH . 'settings/display.php',
+		),
 		);
 
 		return $structure;
 	}
-
 
 }
 
