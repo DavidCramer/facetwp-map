@@ -174,9 +174,9 @@ class FWP_Map {
 	 *
 	 */
 	private function get_content( $post_id ) {
-		$content = '<div id="fwpm-infobox"><h1 class="fwpm-infobox-title">' . get_the_title( $post_id ) . '</h1><div class="facetwp-infobox-content">' . get_the_excerpt( $post_id ) . '</div></div>';
+		$html = '<div id="fwpm-infobox"><h1 class="fwpm-infobox-title">' . get_the_title( $post_id ) . '</h1><div class="facetwp-infobox-content">' . get_the_excerpt( $post_id ) . '</div></div>';
 
-		return apply_filters( 'facetwp-map-infobox-content', $content, $post_id );
+		return apply_filters( 'facetwp_map_marker_html', $html, $post_id );
 	}
 
 	/**
@@ -192,7 +192,7 @@ class FWP_Map {
 			'position' => $location,
 		);
 
-		return apply_filters( 'facetwp-map-marker', $base, $post_id );
+		return apply_filters( 'facetwp_map_marker_args', $base, $post_id );
 	}
 
 	/**
@@ -280,7 +280,7 @@ class FWP_Map {
 			),
 			'section'    => array(
 				'general' => include FWP_MAP_PATH . 'settings/general.php',
-				//'display' => include FWP_MAP_PATH . 'settings/display.php',
+				'display' => include FWP_MAP_PATH . 'settings/display.php',
 			),
 		);
 
