@@ -41,14 +41,12 @@ $settings = array(
 					'label'   => __( 'Marker', 'facetwp' ),
 					'icon'    => 'dashicons-location',
 					'control' => array(
-						'marker_style' => array(
-							'label'       => __( 'Marker Style', 'facetwp' ),
-							'description' => __( 'Select the marker style.', 'facetwp' ),
-							'type'        => 'select',
-							'choices'     => array(
-								'preset' => __( 'Preset', 'facetwp' ),
-								'manual' => __( 'Custom', 'facetwp' ),
-							),
+						'content' => array(
+							'label'       => __( 'Marker Content', 'facetwp' ),
+							'description' => __( 'Add contnet to display on the marker click.', 'facetwp' ),
+							'type'        => 'textarea',
+							'rows'        => 9,
+							'value'       => '<div id="fwpm-infobox">' . "\r\n\t" . '<h1 class="fwpm-infobox-title"><?php the_title(); ?></h1>' . "\r\n\t" . '<div class="facetwp-infobox-content"><?php the excerpt(); ?></div>' . "\r\n" . '</div>',
 						),
 					),
 				),

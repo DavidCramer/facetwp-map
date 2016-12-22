@@ -217,9 +217,18 @@ class FWP_Map {
 	 *
 	 */
 	private function get_content( $post_id ) {
-		$html = '<div id="fwpm-infobox"><h1 class="fwpm-infobox-title">' . get_the_title( $post_id ) . '</h1><div class="facetwp-infobox-content"></div></div>';
+		$data = $this->admin_page->load_data();
+		global $post;
+		$main_post = $post;
+		$post = get_post( $post_id );
+		ob_start();
+		$code = preg_replace( "/\xC2\xA0/", ' ', $data['display']['style']['marker']['content'] );
+		eval( '?>' . $code );
+		$html = apply_filters( 'facetwp_map_marker_html', ob_get_clean(), $post );
+		// reset to main post in case
+		$post = $main_post;
 
-		return apply_filters( 'facetwp_map_marker_html', $html, $post_id );
+		return $html;
 	}
 
 	/**
@@ -305,13 +314,13 @@ class FWP_Map {
 					),
 				),
 			),
-			'style'     => array(
+			'style'      => array(
 				'admin' => FWP_MAP_URL . 'assets/css/admin.css',
 			),
 			'section'    => array(
-			'general' => include FWP_MAP_PATH . 'settings/general.php',
-			'display' => include FWP_MAP_PATH . 'settings/display.php',
-		),
+				'general' => include FWP_MAP_PATH . 'settings/general.php',
+				'display' => include FWP_MAP_PATH . 'settings/display.php',
+			),
 		);
 
 		return $structure;
