@@ -204,12 +204,12 @@ class FWP_Map {
 	public function assets( $assets ) {
 
 		$data = $this->admin_page->load_data();
-		if ( isset( $assets['gmaps'] ) ) {
-			$api_key         = $data['general']['api_key'];
+		if ( ! isset( $assets['gmaps'] ) ) {
+			$api_key         = $data['general']['config']['map']['api_key'];
 			$assets['gmaps'] = '//maps.googleapis.com/maps/api/js?libraries=places&key=' . $api_key;
 		}
 		// check for clustering
-		if ( ! empty( $data['general']['group_markers'] ) ) {
+		if ( ! empty( $data['general']['config']['map']['group_markers'] ) ) {
 			$assets['cluster-gmaps'] = '//developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js';
 		}
 		// add front styles
