@@ -380,8 +380,8 @@ class FWP_Map {
 	public function admin_core_page() {
 
 		$structure = array(
-			'page_title' => __( 'FacetWP Map', 'facetwp' ),
-			'menu_title' => __( 'FacetWP Map', 'facetwp' ),
+			'page_title' => __( 'FacetWP - Map', 'facetwp' ),
+			'menu_title' => __( 'FacetWP - Map', 'facetwp' ),
 			'parent'     => 'options-general.php',
 			'base_color' => '#906dbe',
 			'attributes' => array(
@@ -389,8 +389,8 @@ class FWP_Map {
 			),
 			'header'     => array(
 				'id'          => 'admin_header',
-				'label'       => __( 'FacetWP Map', 'facetwp' ),
-				'description' => __( '1.0.0', 'facetwp' ),
+				'label'       => __( 'FacetWP - Map', 'facetwp' ),
+				'description' => __( '1.0', 'facetwp' ),
 				'control'     => array(
 					array(
 						'type' => 'separator',

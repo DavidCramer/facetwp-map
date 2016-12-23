@@ -22,8 +22,8 @@ $settings = array(
 							'size'    => 'col-sm-6',
 							'control' => array(
 								'api_key' => array(
-									'label'       => __( 'API Key', 'facetwp' ),
-									'description' => __( 'Google Maps API Key.', 'facetwp' ),
+									'label'       => __( 'Google Maps API Key', 'facetwp' ),
+									'description' => '<a href="https://developers.google.com/maps/documentation/javascript/get-api-key#get-an-api-key" target="_blank">Get an API key &raquo;</a>',
 									'type'        => 'text',
 									'value'       => defined( 'GMAPS_API_KEY' ) ? GMAPS_API_KEY : '',
 									'attributes'  => defined( 'GMAPS_API_KEY' ) ? array( 'disabled' => true ) : array(),
@@ -35,7 +35,6 @@ $settings = array(
 							'control' => array(
 								'height' => array(
 									'label'       => __( 'Map Height', 'facetwp' ),
-									'description' => __( 'Set the height of the map.', 'facetwp' ),
 									'type'        => 'number',
 									'value'       => 400,
 								),
@@ -50,12 +49,11 @@ $settings = array(
 							'control' => array(
 								'result_count' => array(
 									'label'       => __( 'Result Count', 'facetwp' ),
-									'description' => __( 'Set how many results are displayed on the map.', 'facetwp' ),
 									'type'        => 'select',
 									'value'       => 'page',
 									'choices'     => array(
-										'all'  => __( 'Display All results. No pagination', 'facetwp' ),
-										'page' => __( 'Adapt to templates pagination and results count.', 'facetwp' ),
+										'all'  => __( 'Show all results', 'facetwp' ),
+										'page' => __( 'Show paginated results', 'facetwp' ),
 									),
 								),
 							),
@@ -64,8 +62,8 @@ $settings = array(
 							'size'    => 'col-sm-6',
 							'control' => array(
 								'group_markers' => array(
-									'label'       => __( 'Group Markers', 'facetwp' ),
-									'description' => __( 'Enable Marker grouping when zoomed out.', 'facetwp' ),
+									'label'       => __( 'Group Markers?', 'facetwp' ),
+									'description' => __( 'Enable marker clustering', 'facetwp' ),
 									'type'        => 'toggle',
 								),
 							),
@@ -76,7 +74,7 @@ $settings = array(
 		),
 	),
 	'source'    => array(
-		'label' => __( 'Data Sources', 'facetwp' ),
+		'label' => __( 'Data', 'facetwp' ),
 		'grid'  => array(
 			'id'  => 'source_grid',
 			'row' => array(
@@ -86,8 +84,7 @@ $settings = array(
 							'size'    => 'col-sm-6',
 							'control' => array(
 								'source_type'  => array(
-									'label'       => __( 'Source Type', 'facetwp' ),
-									'description' => __( 'Select the type of coordinates source.', 'facetwp' ),
+									'label'       => __( 'Source Field(s)', 'facetwp' ),
 									'value'       => 'single',
 									'type'        => 'select',
 									'choices'     => array(
@@ -97,7 +94,6 @@ $settings = array(
 								),
 								'single_order' => array(
 									'label'       => __( 'Coordinates Order ', 'facetwp' ),
-									'description' => __( 'Set the order of the comma separation', 'facetwp' ),
 									'value'       => 'type',
 									'type'        => 'select',
 									'value'       => 'lat_lng',
@@ -113,7 +109,7 @@ $settings = array(
 							'control' => array(
 								'location_field' => array(
 									'label'       => __( 'Location Field', 'facetwp' ),
-									'description' => __( 'Custom Field slug that contains the coordinates.', 'facetwp' ),
+									'description' => __( 'Custom field containing the coordinates', 'facetwp' ),
 									'value'       => 'location',
 									'type'        => 'template',
 									'template'    => FWP_MAP_PATH . 'includes/location-selector.php',
@@ -135,7 +131,7 @@ $settings = array(
 		'label'   => __( 'Map', 'facetwp' ),
 		'control' => array(
 			'snazzy' => array(
-				'label'    => __( 'Select A Snazzy Map', 'facetwp' ),
+				'label'    => __( 'Select a Snazzy Map', 'facetwp' ),
 				'type'     => 'template',
 				'template' => FWP_MAP_PATH . 'includes/snazzy.php',
 				'script'   => array(
@@ -145,7 +141,7 @@ $settings = array(
 			),
 			'styles' => array(
 				'label'       => __( 'Map Style Code', 'facetwp' ),
-				'description' => __( 'Manually Add style code.', 'facetwp' ),
+				'description' => __( 'Manually add style code', 'facetwp' ),
 				'type'        => 'textarea',
 			),
 		),
@@ -155,10 +151,9 @@ $settings = array(
 		'control' => array(
 			'content' => array(
 				'label'       => __( 'Marker Content', 'facetwp' ),
-				'description' => __( 'Add contnet to display on the marker click.', 'facetwp' ),
 				'type'        => 'textarea',
 				'rows'        => 9,
-				'value'       => '<div id="fwpm-infobox">' . "\r\n\t" . '<h1 class="fwpm-infobox-title"><?php the_title(); ?></h1>' . "\r\n\t" . '<div class="facetwp-infobox-content"><?php the_excerpt(); ?></div>' . "\r\n" . '</div>',
+				'value'       => '<div id="fwpm-infobox">' . "\r\n\t" . '<h1 class="fwpm-infobox-title"><?php the_title(); ?></h1>' . "\r\n\t" . '<div class="fwpm-infobox-content"><?php the_excerpt(); ?></div>' . "\r\n" . '</div>',
 			),
 		),
 	),

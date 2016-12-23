@@ -20,15 +20,12 @@ if ( empty( $value ) || ! is_array( $value ) ) {
 $fields = array(
 	'single'    => array(
 		'label'       => __( 'Coordinates source', 'facetwp' ),
-		'description' => __( 'Select source of the comma separated coordinates', 'facetwp' ),
 	),
 	'lat'  => array(
 		'label'       => __( 'Latitude source', 'facetwp' ),
-		'description' => __( 'Select source of the latitude coordinate', 'facetwp' ),
 	),
 	'lng' => array(
 		'label'       => __( 'Longitude source', 'facetwp' ),
-		'description' => __( 'Select source of the longitude coordinate', 'facetwp' ),
 	),
 );
 
@@ -59,8 +56,6 @@ foreach ( $fields as $field => $conf ) {
 				?>
 			</select>
 		</div>
-		<span
-			class="facetwp_map-control-description"><?php echo esc_html( $conf['description'] ); ?></span>
 	</div>
 	<?php
 }

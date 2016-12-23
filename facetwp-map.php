@@ -1,9 +1,9 @@
 <?php
 /*
- * Plugin Name: FacetWP Map
+ * Plugin Name: FacetWP - Map
  * Plugin URI: 
  * Description: Generates a map alongside FacetWP results
- * Version: 1.0.0
+ * Version: 1.0
  * Author: David Cramer
  * Author URI: 
  * Text Domain: facetwp
