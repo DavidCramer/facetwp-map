@@ -23,7 +23,7 @@ $settings = array(
 							'control' => array(
 								'api_key' => array(
 									'label'       => __( 'Google Maps API Key', 'facetwp' ),
-									'description' => '<a href="https://developers.google.com/maps/documentation/javascript/get-api-key#get-an-api-key" target="_blank">Get an API key &raquo;</a>',
+									'description' => '<div style="text-align:right"><a href="https://developers.google.com/maps/documentation/javascript/get-api-key#get-an-api-key" target="_blank">Get an API key &raquo;</a></div>',
 									'type'        => 'text',
 									'value'       => defined( 'GMAPS_API_KEY' ) ? GMAPS_API_KEY : '',
 									'attributes'  => defined( 'GMAPS_API_KEY' ) ? array( 'disabled' => true ) : array(),

@@ -213,7 +213,7 @@ class control extends \facetwp_map\data\data {
 	public function description() {
 		$output = null;
 		if ( isset( $this->struct['description'] ) ) {
-			$output .= '<span class="facetwp_map-control-description">' . esc_html( $this->struct['description'] ) . '</span>';
+			$output .= '<span class="facetwp_map-control-description">' . $this->struct['description'] . '</span>';
 		}
 
 		return $output;
