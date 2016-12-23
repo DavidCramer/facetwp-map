@@ -130,7 +130,7 @@ class FWP_Map {
 		$facets = FWP()->facet;
 		$data   = $this->admin_page->load_data();
 
-		if ( ! empty( $data['general']['config']['result']['result_count'] ) && 'all' == $data['general']['config']['result']['result_count'] && empty( $params['used_facets'] ) ) {
+		if ( ! empty( $data['map']['result_count'] ) && 'all' == $data['map']['result_count'] && empty( $params['used_facets'] ) ) {
 			$post_ids = $facets->query_args['post__in'];
 		} else {
 			// normals
@@ -149,7 +149,7 @@ class FWP_Map {
 	private function map_config() {
 		$data = $this->admin_page->load_data();
 
-		return apply_filters( 'facetwp_map_config_args', $data['general']['config']['map'] );
+		return apply_filters( 'facetwp_map_config_args', $data['map'] );
 	}
 
 	/**
@@ -161,9 +161,9 @@ class FWP_Map {
 	private function map_init() {
 		$data = $this->admin_page->load_data();
 		// convert styles json
-		$data['display']['style']['map']['styles'] = json_decode( $data['display']['style']['map']['styles'] );
+		$data['map_style']['styles'] = json_decode( $data['map_style']['styles'] );
 
-		return apply_filters( 'facetwp_map_init_args', $data['display']['style']['map'] );
+		return apply_filters( 'facetwp_map_init_args', $data['map_style'] );
 	}
 
 	/**
@@ -174,7 +174,7 @@ class FWP_Map {
 	 */
 	private function location( $post_id ) {
 		$data     = $this->admin_page->load_data();
-		$location = get_post_meta( $post_id, $data['general']['config']['result']['location_field'], true );
+		$location = get_post_meta( $post_id, $data['source']['location_field'], true );
 		// has field
 		if ( empty( $location ) ) {
 			return false;
@@ -220,9 +220,9 @@ class FWP_Map {
 		$data = $this->admin_page->load_data();
 		global $post;
 		$main_post = $post;
-		$post = get_post( $post_id );
+		$post      = get_post( $post_id );
 		ob_start();
-		$code = preg_replace( "/\xC2\xA0/", ' ', $data['display']['style']['marker']['content'] );
+		$code = preg_replace( "/\xC2\xA0/", ' ', $data['marker']['content'] );
 		eval( '?>' . $code );
 		$html = apply_filters( 'facetwp_map_marker_html', ob_get_clean(), $post );
 		// reset to main post in case
@@ -241,11 +241,11 @@ class FWP_Map {
 
 		$data = $this->admin_page->load_data();
 		if ( ! isset( $assets['gmaps'] ) ) {
-			$api_key         = $data['general']['config']['map']['api_key'];
+			$api_key         = defined( 'GMAPS_API_KEY' ) ? GMAPS_API_KEY : $data['map']['api_key'];
 			$assets['gmaps'] = '//maps.googleapis.com/maps/api/js?libraries=places&key=' . $api_key;
 		}
 		// check for clustering
-		if ( ! empty( $data['general']['config']['map']['group_markers'] ) ) {
+		if ( ! empty( $data['map']['group_markers'] ) ) {
 			$assets['cluster-gmaps'] = '//developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js';
 		}
 		// add front styles
@@ -317,10 +317,7 @@ class FWP_Map {
 			'style'      => array(
 				'admin' => FWP_MAP_URL . 'assets/css/admin.css',
 			),
-			'section'    => array(
-				'general' => include FWP_MAP_PATH . 'settings/general.php',
-				'display' => include FWP_MAP_PATH . 'settings/display.php',
-			),
+			'section'    => include FWP_MAP_PATH . 'settings/settings.php',
 		);
 
 		return $structure;

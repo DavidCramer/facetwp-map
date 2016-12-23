@@ -10,15 +10,11 @@
     margin: 8px 8px 7px 0;
     overflow: hidden;
     padding: 175px 0 0;
-    width: 300px;
+    width: 260px;
 }
 .stacked .facetwp_map-snazzy-item {
     padding-top: 360px;
     width: 100%;
-}
-
-.facetwp_map-snazzy-item:nth-child(even) {
-    margin-right: 0;
 }
 
 .facetwp-snazzy-content{
@@ -55,7 +51,7 @@
     border-image: none;
     border-style: solid none;
     border-width: 1px 0;
-    margin: 16px -13px 12px -12px;
+    margin: 16px 16px 12px 0;
     padding: 12px;
 }
 .facetwp_map-snazzy-item.current-style {

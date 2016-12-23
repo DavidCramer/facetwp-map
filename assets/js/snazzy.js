@@ -71,8 +71,8 @@
     $(document).on('facetwp_map.init', init_snazzy_nav);
     function init_snazzy_nav() {
         filters = $('#facetwp_map-snazzy-filters');
-        key = $('#fwp_map-display-style-map-snazzy-control');
-        stylebox = $('#fwp_map-display-style-map-styles-control');
+        key = $('#fwp_map-map_style-snazzy-control');
+        stylebox = $('#fwp_map-map_style-styles-control');
         template = Handlebars.compile($('#snazzy-item-tmpl').html());
         container = $('#facetwp_map-snazzy-results');
         if (key.val().length) {
