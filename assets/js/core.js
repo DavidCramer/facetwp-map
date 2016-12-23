@@ -17,5 +17,4 @@ var FWP_MAP = {};
         });
     });
 
-
 })( window );

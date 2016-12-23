@@ -137,17 +137,4 @@ class grid extends section {
 		return $output;
 	}
 
-	/**
-	 * Define core header styles
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 */
-	public function set_assets() {
-
-		$this->assets['style']['grid'] = $this->url . 'assets/css/grid' . FWP_MAP_ASSET_DEBUG . '.css';
-
-		parent::set_assets();
-	}
-
 }

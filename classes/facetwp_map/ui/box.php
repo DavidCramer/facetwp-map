@@ -132,7 +132,6 @@ class box extends panel implements \facetwp_map\data\save, \facetwp_map\data\loa
 			'src'  => $this->url . 'assets/js/ajax' . FWP_MAP_ASSET_DEBUG . '.js',
 			'deps' => array( 'baldrick' ),
 		);
-		$this->assets['style']['facetwp_map-ajax']  = $this->url . 'assets/css/ajax' . FWP_MAP_ASSET_DEBUG . '.css';
 
 		parent::set_assets();
 	}

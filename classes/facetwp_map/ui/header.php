@@ -117,19 +117,6 @@ class header extends section {
 	}
 
 	/**
-	 * Define core header styles
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 */
-	public function set_assets() {
-
-		$this->assets['style']['header'] = $this->url . 'assets/css/header' . FWP_MAP_ASSET_DEBUG . '.css';
-
-		parent::set_assets();
-	}
-
-	/**
 	 * checks if the current section is active
 	 *
 	 * @since 1.0.0

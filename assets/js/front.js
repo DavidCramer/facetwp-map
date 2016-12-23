@@ -55,7 +55,6 @@ function facetwpMapReset() {
     }
 }
 
-
 jQuery(function ($) {
     $(document).on('facetwp-loaded', function () {
         facetwpMapInit();

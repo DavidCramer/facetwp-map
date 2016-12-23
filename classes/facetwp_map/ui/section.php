@@ -27,20 +27,6 @@ class section extends panel {
 	 */
 	public $type = 'section';
 
-
-	/**
-	 * Define core page style
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 */
-	public function set_assets() {
-
-		$this->assets['style']['sections'] = $this->url . 'assets/css/sections' . FWP_MAP_ASSET_DEBUG . '.css';
-
-		parent::set_assets();
-	}
-
 	/**
 	 * Render the complete section
 	 *

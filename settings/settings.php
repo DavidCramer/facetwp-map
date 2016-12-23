@@ -96,7 +96,7 @@ $settings = array(
 				'template' => FWP_MAP_PATH . 'includes/snazzy.php',
 				'script'   => array(
 					'handlebars' => FWP_MAP_URL . 'assets/js/handlebars-latest.min.js',
-					'snazzy'     => FWP_MAP_URL . 'assets/js/snazzy.js',
+					'snazzy'     => FWP_MAP_URL . 'assets/js/snazzy.min.js',
 				),
 			),
 			'styles' => array(

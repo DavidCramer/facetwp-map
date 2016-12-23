@@ -1,4 +1,3 @@
-
 var facetwp_map_edit_state = false;
 
 (function($){

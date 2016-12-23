@@ -134,17 +134,6 @@ class control extends \facetwp_map\data\data {
 	}
 
 	/**
-	 * Define core page styles
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 */
-	public function set_assets() {
-		$this->assets['style']['controls'] = $this->url . 'assets/css/control' . FWP_MAP_ASSET_DEBUG . '.css';
-		parent::set_assets();
-	}
-
-	/**
 	 * Render the Control
 	 *
 	 * @since 1.0.0

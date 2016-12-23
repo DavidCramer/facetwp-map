@@ -36,19 +36,6 @@ class page extends box implements \facetwp_map\data\save {
 	public $screen_hook_suffix = array();
 
 	/**
-	 * Define core page styles
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 */
-	public function set_assets() {
-
-		$this->assets['style']['page'] = $this->url . 'assets/css/page' . FWP_MAP_ASSET_DEBUG . '.css';
-
-		parent::set_assets();
-	}
-
-	/**
 	 * Sets the wrappers attributes
 	 *
 	 * @since 1.0.0

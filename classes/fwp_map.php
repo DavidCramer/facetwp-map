@@ -80,7 +80,8 @@ class FWP_Map {
 	public function shortcode( $output, $atts ) {
 
 		if ( isset( $atts['map'] ) ) {
-			$height = isset( $atts['height'] ) ? $atts['height'] : 400;
+			$map_config = $this->map_config();
+			$height = isset( $atts['height'] ) ? $atts['height'] : $map_config['height'];
 			// add maps to facet assets
 			add_filter( 'facetwp_assets', array( $this, 'assets' ) );
 			ob_start();
@@ -249,9 +250,9 @@ class FWP_Map {
 			$assets['cluster-gmaps'] = '//developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js';
 		}
 		// add front styles
-		$assets['fwpm-front.css'] = FWP_MAP_URL . 'assets/css/front.css';
+		$assets['fwpm-front.css'] = FWP_MAP_URL . 'assets/css/front.min.css';
 		// add front js
-		$assets['fwpm-front.js'] = FWP_MAP_URL . 'assets/js/front.js';
+		$assets['fwpm-front.js'] = FWP_MAP_URL . 'assets/js/front.min.js';
 
 		return $assets;
 
@@ -315,7 +316,7 @@ class FWP_Map {
 				),
 			),
 			'style'      => array(
-				'admin' => FWP_MAP_URL . 'assets/css/admin.css',
+				'admin' => FWP_MAP_URL . 'assets/css/admin.min.css',
 			),
 			'section'    => include FWP_MAP_PATH . 'settings/settings.php',
 		);

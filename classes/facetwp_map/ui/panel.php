@@ -36,7 +36,6 @@ class panel extends \facetwp_map\data\data {
 	public function set_assets() {
 
 		$this->assets['script']['panel'] = $this->url . 'assets/js/panel' . FWP_MAP_ASSET_DEBUG . '.js';
-		$this->assets['style']['panel']  = $this->url . 'assets/css/panel' . FWP_MAP_ASSET_DEBUG . '.css';
 
 		parent::set_assets();
 
