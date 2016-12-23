@@ -18,32 +18,32 @@ namespace facetwp_map\ui;
  */
 class footer extends section {
 
-	/**
-	 * The type of object
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @var      string
-	 */
-	public $type = 'footer';
+    /**
+     * The type of object
+     *
+     * @since 1.0.0
+     * @access public
+     * @var      string
+     */
+    public $type = 'footer';
 
 
-	/**
-	 * Render the Control
-	 *
-	 * @since 1.0.0
-	 * @see \facetwp_map\ui\facetwp_map
-	 * @access public
-	 * @return string HTML of rendered box
-	 */
-	public function render() {
+    /**
+     * Render the Control
+     *
+     * @since 1.0.0
+     * @see \facetwp_map\ui\facetwp_map
+     * @access public
+     * @return string HTML of rendered box
+     */
+    public function render() {
 
-		$output = $this->render_template();
-		if ( ! empty( $this->child ) ) {
-			$output .= $this->render_children();
-		}
+        $output = $this->render_template();
+        if ( ! empty( $this->child ) ) {
+            $output .= $this->render_children();
+        }
 
-		return $output;
-	}
+        return $output;
+    }
 
 }

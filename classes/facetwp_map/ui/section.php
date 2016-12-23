@@ -18,38 +18,38 @@ namespace facetwp_map\ui;
  */
 class section extends panel {
 
-	/**
-	 * The type of object
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @var      string
-	 */
-	public $type = 'section';
+    /**
+     * The type of object
+     *
+     * @since 1.0.0
+     * @access public
+     * @var      string
+     */
+    public $type = 'section';
 
-	/**
-	 * Render the complete section
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @return string|null HTML of rendered notice
-	 */
-	public function render() {
+    /**
+     * Render the complete section
+     *
+     * @since 1.0.0
+     * @access public
+     * @return string|null HTML of rendered notice
+     */
+    public function render() {
 
-		if ( ! isset( $this->struct['active'] ) ) {
-			$this->struct['active'] = 'true';
-		}
+        if ( ! isset( $this->struct['active'] ) ) {
+            $this->struct['active'] = 'true';
+        }
 
-		$output = '<div id="' . esc_attr( $this->id() ) . '" class="facetwp_map-section" aria-hidden="' . esc_attr( $this->struct['active'] ) . '">' . $this->description();
+        $output = '<div id="' . esc_attr( $this->id() ) . '" class="facetwp_map-section" aria-hidden="' . esc_attr( $this->struct['active'] ) . '">' . $this->description();
 
-		$output .= '<div class="facetwp_map-section-content">';
+        $output .= '<div class="facetwp_map-section-content">';
 
-		$output .= $this->render_template();
-		$output .= $this->render_children();
+        $output .= $this->render_template();
+        $output .= $this->render_children();
 
-		$output .= '</div></div>';
+        $output .= '</div></div>';
 
-		return $output;
-	}
+        return $output;
+    }
 
 }

@@ -18,112 +18,112 @@ namespace facetwp_map\ui;
  */
 class header extends section {
 
-	/**
-	 * The type of object
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @var      string
-	 */
-	public $type = 'header';
+    /**
+     * The type of object
+     *
+     * @since 1.0.0
+     * @access public
+     * @var      string
+     */
+    public $type = 'header';
 
-	/**
-	 * type of header element
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @var      string
-	 */
-	public $element = 'h1';
+    /**
+     * type of header element
+     *
+     * @since 1.0.0
+     * @access public
+     * @var      string
+     */
+    public $element = 'h1';
 
-	/**
-	 * List of attributes to apply to the wrapper element
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @var array
-	 */
-	public $attributes = array( 'class' => 'facetwp_map-title' );
+    /**
+     * List of attributes to apply to the wrapper element
+     *
+     * @since 1.0.0
+     * @access public
+     * @var array
+     */
+    public $attributes = array( 'class' => 'facetwp_map-title' );
 
-	/**
-	 * Set the element type
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 */
-	public function init() {
-		if ( ! empty( $this->struct['element'] ) ) {
-			$this->element = $this->struct['element'];
-		}
-	}
+    /**
+     * Set the element type
+     *
+     * @since 1.0.0
+     * @access public
+     */
+    public function init() {
+        if ( ! empty( $this->struct['element'] ) ) {
+            $this->element = $this->struct['element'];
+        }
+    }
 
 
-	/**
-	 * Render the complete section
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @return string|null HTML of rendered notice
-	 */
-	public function render() {
+    /**
+     * Render the complete section
+     *
+     * @since 1.0.0
+     * @access public
+     * @return string|null HTML of rendered notice
+     */
+    public function render() {
 
-		$output = '<' . $this->element . ' ' . $this->build_attributes() . '>';
+        $output = '<' . $this->element . ' ' . $this->build_attributes() . '>';
 
-		$output .= $this->label();
+        $output .= $this->label();
 
-		$output .= $this->description();
+        $output .= $this->description();
 
-		$output .= $this->render_template();
+        $output .= $this->render_template();
 
-		if ( ! empty( $this->child ) ) {
-			$output .= $this->render_children();
-		}
+        if ( ! empty( $this->child ) ) {
+            $output .= $this->render_children();
+        }
 
-		$output .= '</' . $this->element . '>';
+        $output .= '</' . $this->element . '>';
 
-		return $output;
-	}
+        return $output;
+    }
 
-	/**
-	 * Render the panels label
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @return string|null rendered html of label
-	 */
-	public function label() {
-		$output = null;
-		if ( ! empty( $this->struct['label'] ) ) {
-			$output .= '<span class="facetwp_map-text">' . esc_html( $this->struct['label'] ) . '</span>';
-		}
+    /**
+     * Render the panels label
+     *
+     * @since 1.0.0
+     * @access public
+     * @return string|null rendered html of label
+     */
+    public function label() {
+        $output = null;
+        if ( ! empty( $this->struct['label'] ) ) {
+            $output .= '<span class="facetwp_map-text">' . esc_html( $this->struct['label'] ) . '</span>';
+        }
 
-		return $output;
-	}
+        return $output;
+    }
 
-	/**
-	 * Render the panels Description
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @return string|null HTML of rendered description
-	 */
-	public function description() {
-		$output = null;
-		if ( ! empty( $this->struct['description'] ) ) {
-			$output .= ' <small>' . esc_html( $this->struct['description'] ) . '</small>';
-		}
+    /**
+     * Render the panels Description
+     *
+     * @since 1.0.0
+     * @access public
+     * @return string|null HTML of rendered description
+     */
+    public function description() {
+        $output = null;
+        if ( ! empty( $this->struct['description'] ) ) {
+            $output .= ' <small>' . esc_html( $this->struct['description'] ) . '</small>';
+        }
 
-		return $output;
-	}
+        return $output;
+    }
 
-	/**
-	 * checks if the current section is active
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 */
-	public function is_active() {
-		return $this->parent->is_active();
-	}
+    /**
+     * checks if the current section is active
+     *
+     * @since 1.0.0
+     * @access public
+     */
+    public function is_active() {
+        return $this->parent->is_active();
+    }
 
 }

@@ -17,29 +17,29 @@ namespace facetwp_map\ui\control;
  */
 class text extends \facetwp_map\ui\control {
 
-	/**
-	 * The type of object
-	 *
-	 * @since       1.0.0
-	 * @access public
-	 * @var         string
-	 */
-	public $type = 'text';
+    /**
+     * The type of object
+     *
+     * @since       1.0.0
+     * @access public
+     * @var         string
+     */
+    public $type = 'text';
 
-	/**
-	 * Gets the classes for the control input
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return array
-	 */
-	public function classes() {
+    /**
+     * Gets the classes for the control input
+     *
+     * @since  1.0.0
+     * @access public
+     * @return array
+     */
+    public function classes() {
 
-		$classes = array(
-			'regular-text',
-		);
+        $classes = array(
+            'regular-text',
+        );
 
-		return $classes;
-	}
+        return $classes;
+    }
 
 }

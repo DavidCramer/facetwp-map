@@ -1,6 +1,6 @@
-(function() {
+(function($) {
 
-    jQuery( function( $ ){
+    $(function() {
         $( document ).on( 'change', '.toggle-checkbox', function( e ){
             var clicked     = $( this ),
                 parent      = clicked.closest( '.facetwp_map-section-content' ),                
@@ -31,16 +31,12 @@
                     box.prop( 'checked', true ).data('value', null).parent().addClass('active');
                 }
             });
-            //$('.facetwp_map-control .toggle-checkbox').trigger('change');
         });
         $( document ).on('change', '[data-toggle-all="true"]', function(e){
             var clicked = $( this ),
                 parent = clicked.closest( '.facetwp_map-section-content' );
                 parent.find('.facetwp_map-control .switch > input').not(this).prop('checked', this.checked).trigger('change');
         });
-
     });
-
-
 
 })( jQuery );

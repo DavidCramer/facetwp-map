@@ -17,13 +17,13 @@ namespace facetwp_map\ui\control;
  */
 class number extends \facetwp_map\ui\control {
 
-	/**
-	 * The type of object
-	 *
-	 * @since       1.0.0
-	 * @access public
-	 * @var         string
-	 */
-	public $type = 'number';
+    /**
+     * The type of object
+     *
+     * @since       1.0.0
+     * @access public
+     * @var         string
+     */
+    public $type = 'number';
 
 }

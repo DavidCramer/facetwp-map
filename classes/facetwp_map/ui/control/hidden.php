@@ -17,28 +17,28 @@ namespace facetwp_map\ui\control;
  */
 class hidden extends \facetwp_map\ui\control {
 
-	/**
-	 * The type of object
-	 *
-	 * @since       1.0.0
-	 * @access public
-	 * @var         string
-	 */
-	public $type = 'hidden';
+    /**
+     * The type of object
+     *
+     * @since       1.0.0
+     * @access public
+     * @var         string
+     */
+    public $type = 'hidden';
 
-	/**
-	 * Render the Control
-	 *
-	 * @since 1.0.0
-	 * @see \facetwp_map\ui\facetwp_map
-	 * @access public
-	 * @return string HTML of rendered control
-	 */
-	public function render() {
+    /**
+     * Render the Control
+     *
+     * @since 1.0.0
+     * @see \facetwp_map\ui\facetwp_map
+     * @access public
+     * @return string HTML of rendered control
+     */
+    public function render() {
 
-		$output = $this->input();
+        $output = $this->input();
 
-		return $output;
-	}
+        return $output;
+    }
 
 }

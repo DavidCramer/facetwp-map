@@ -17,24 +17,24 @@ namespace facetwp_map\ui\control;
  */
 class checkbox extends \facetwp_map\ui\control\radio {
 
-	/**
-	 * The type of object
-	 *
-	 * @since       1.0.0
-	 * @access public
-	 * @var         string
-	 */
-	public $type = 'checkbox';
+    /**
+     * The type of object
+     *
+     * @since       1.0.0
+     * @access public
+     * @var         string
+     */
+    public $type = 'checkbox';
 
-	/**
-	 * Create and Return the control's input name
-	 *
-	 * @since 1.0.0
-	 * @access public
-	 * @return string The control name
-	 */
-	public function name() {
-		return parent::name() . '[]';
-	}
+    /**
+     * Create and Return the control's input name
+     *
+     * @since 1.0.0
+     * @access public
+     * @return string The control name
+     */
+    public function name() {
+        return parent::name() . '[]';
+    }
 
 }

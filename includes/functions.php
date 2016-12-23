@@ -18,17 +18,17 @@
  * @param string $class class name to be checked and autoloaded
  */
 function facetwp_map_autoload_class( $class ) {
-	$parts = explode( '\\', $class );
-	$name  = array_shift( $parts );
-	if ( file_exists( FWP_MAP_PATH . 'classes/' . $name ) ) {
-		if ( ! empty( $parts ) ) {
-			$name .= '/' . implode( '/', $parts );
-		}
-		$class_file = FWP_MAP_PATH . 'classes/' . $name . '.php';
-		if ( file_exists( $class_file ) ) {
-			include_once $class_file;
-		}
-	}
+    $parts = explode( '\\', $class );
+    $name  = array_shift( $parts );
+    if ( file_exists( FWP_MAP_PATH . 'classes/' . $name ) ) {
+        if ( ! empty( $parts ) ) {
+            $name .= '/' . implode( '/', $parts );
+        }
+        $class_file = FWP_MAP_PATH . 'classes/' . $name . '.php';
+        if ( file_exists( $class_file ) ) {
+            include_once $class_file;
+        }
+    }
 }
 
 /**
@@ -38,16 +38,16 @@ function facetwp_map_autoload_class( $class ) {
  */
 function facetwp_map() {
 
-	$request_data = array(
-		'post'    => $_POST,
-		'get'     => $_GET,
-		'files'   => $_FILES,
-		'request' => $_REQUEST,
-		'server'  => $_SERVER,
-	);
+    $request_data = array(
+        'post'    => $_POST,
+        'get'     => $_GET,
+        'files'   => $_FILES,
+        'request' => $_REQUEST,
+        'server'  => $_SERVER,
+    );
 
-	// init UI
-	return \facetwp_map\ui::get_instance( $request_data );
+    // init UI
+    return \facetwp_map\ui::get_instance( $request_data );
 }
 
 /**
@@ -56,7 +56,6 @@ function facetwp_map() {
  * @since 1.0.0
  */
 function facetwp_map_share() {
-	// init UI
-	return \facetwp_map\share\share::get_instance();
+    // init UI
+    return \facetwp_map\share\share::get_instance();
 }
-

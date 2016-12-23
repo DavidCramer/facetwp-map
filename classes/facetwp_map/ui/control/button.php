@@ -17,61 +17,61 @@ namespace facetwp_map\ui\control;
  */
 class button extends template {
 
-	/**
-	 * The type of object
-	 *
-	 * @since       1.0.0
-	 * @access public
-	 * @var         string
-	 */
-	public $type = 'button';
+    /**
+     * The type of object
+     *
+     * @since       1.0.0
+     * @access public
+     * @var         string
+     */
+    public $type = 'button';
 
-	/**
-	 * Gets the classes for the control input
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return array
-	 */
-	public function classes() {
+    /**
+     * Gets the classes for the control input
+     *
+     * @since  1.0.0
+     * @access public
+     * @return array
+     */
+    public function classes() {
 
-		$classes = array(
-			'button',
-		);
+        $classes = array(
+            'button',
+        );
 
-		if ( ! empty( $this->struct['attributes']['class'] ) ) {
-			$classes = (array) $this->struct['attributes']['class'];
-		}
+        if ( ! empty( $this->struct['attributes']['class'] ) ) {
+            $classes = (array) $this->struct['attributes']['class'];
+        }
 
-		return $classes;
-	}
+        return $classes;
+    }
 
-	/**
-	 * Only if a button is given a value, then return it. this helps to determin which control was clicked.
-	 * @since 1.0.0
-	 * @access public
-	 * @return mixed $data
-	 */
-	public function get_data() {
-		$data = null;
-		if ( ! empty( $this->struct['value'] ) ) {
-			$data[ $this->slug ] = $this->struct['value'];
-		}
+    /**
+     * Only if a button is given a value, then return it. this helps to determin which control was clicked.
+     * @since 1.0.0
+     * @access public
+     * @return mixed $data
+     */
+    public function get_data() {
+        $data = null;
+        if ( ! empty( $this->struct['value'] ) ) {
+            $data[ $this->slug ] = $this->struct['value'];
+        }
 
-		return $data;
-	}
+        return $data;
+    }
 
-	/**
-	 * Returns the main input field for rendering
-	 *
-	 * @since 1.0.0
-	 * @see \facetwp_map\ui\facetwp_map
-	 * @access public
-	 * @return string Input field HTML striung
-	 */
-	public function input() {
+    /**
+     * Returns the main input field for rendering
+     *
+     * @since 1.0.0
+     * @see \facetwp_map\ui\facetwp_map
+     * @access public
+     * @return string Input field HTML striung
+     */
+    public function input() {
 
-		return '<button ' . $this->build_attributes() . '>' . esc_html( $this->struct['label'] ) . '</button>';
-	}
+        return '<button ' . $this->build_attributes() . '>' . esc_html( $this->struct['label'] ) . '</button>';
+    }
 
 }

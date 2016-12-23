@@ -17,79 +17,79 @@ namespace facetwp_map\ui\control;
  */
 class select extends \facetwp_map\ui\control {
 
-	/**
-	 * The type of object
-	 *
-	 * @since       1.0.0
-	 * @access public
-	 * @var         string
-	 */
-	public $type = 'select';
+    /**
+     * The type of object
+     *
+     * @since       1.0.0
+     * @access public
+     * @var         string
+     */
+    public $type = 'select';
 
 
-	/**
-	 * Gets the classes for the control input
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return array
-	 */
-	public function classes() {
+    /**
+     * Gets the classes for the control input
+     *
+     * @since  1.0.0
+     * @access public
+     * @return array
+     */
+    public function classes() {
 
-		$classes = array(
-			'select-field',
-		);
+        $classes = array(
+            'select-field',
+        );
 
-		return $classes;
-	}
+        return $classes;
+    }
 
-	/**
-	 * Returns the main input field for rendering
-	 *
-	 * @since 1.0.0
-	 * @see \facetwp_map\ui\facetwp_map
-	 * @access public
-	 * @return string
-	 */
-	public function input() {
+    /**
+     * Returns the main input field for rendering
+     *
+     * @since 1.0.0
+     * @see \facetwp_map\ui\facetwp_map
+     * @access public
+     * @return string
+     */
+    public function input() {
 
-		$input = '<select ' . $this->build_attributes() . ' data-default="' . esc_attr( $this->get_value() ) . '">';
+        $input = '<select ' . $this->build_attributes() . ' data-default="' . esc_attr( $this->get_value() ) . '">';
 
-		if ( ! isset( $this->struct['value'] ) ) {
-			$input .= '<option></option>';
-		}
+        if ( ! isset( $this->struct['value'] ) ) {
+            $input .= '<option></option>';
+        }
 
-		$input .= $this->build_options();
+        $input .= $this->build_options();
 
-		$input .= '</select>';
+        $input .= '</select>';
 
-		return $input;
-	}
+        return $input;
+    }
 
-	/**
-	 * Builds the set of options to select
-	 *
-	 * @since 1.0.0
-	 * @see \facetwp_map\ui\facetwp_map
-	 * @access public
-	 * @return string
-	 */
-	public function build_options() {
-		$input = '';
-		$value = $this->get_value();
+    /**
+     * Builds the set of options to select
+     *
+     * @since 1.0.0
+     * @see \facetwp_map\ui\facetwp_map
+     * @access public
+     * @return string
+     */
+    public function build_options() {
+        $input = '';
+        $value = $this->get_value();
 
-		if ( ! empty( $this->struct['choices'] ) ) {
-			foreach ( $this->struct['choices'] as $option_value => $option_label ) {
-				$sel = null;
-				if ( $option_value == $value ) {
-					$sel = ' selected="selected"';
-				}
+        if ( ! empty( $this->struct['choices'] ) ) {
+            foreach ( $this->struct['choices'] as $option_value => $option_label ) {
+                $sel = null;
+                if ( $option_value == $value ) {
+                    $sel = ' selected="selected"';
+                }
 
-				$input .= '<option value="' . esc_attr( $option_value ) . '"' . $sel . '>' . esc_html( $option_label ) . '</option>';
-			}
-		}
+                $input .= '<option value="' . esc_attr( $option_value ) . '"' . $sel . '>' . esc_html( $option_label ) . '</option>';
+            }
+        }
 
-		return $input;
-	}
+        return $input;
+    }
 
 }

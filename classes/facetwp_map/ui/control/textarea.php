@@ -17,44 +17,44 @@ namespace facetwp_map\ui\control;
  */
 class textarea extends \facetwp_map\ui\control {
 
-	/**
-	 * The type of object
-	 *
-	 * @since       1.0.0
-	 * @access public
-	 * @var         string
-	 */
-	public $type = 'textarea';
+    /**
+     * The type of object
+     *
+     * @since       1.0.0
+     * @access public
+     * @var         string
+     */
+    public $type = 'textarea';
 
-	/**
-	 * Gets the attributes for the control.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 */
-	public function set_attributes() {
+    /**
+     * Gets the attributes for the control.
+     *
+     * @since  1.0.0
+     * @access public
+     */
+    public function set_attributes() {
 
-		parent::set_attributes();
-		$this->attributes['rows']  = '5';
-		$this->attributes['class'] = 'widefat';
+        parent::set_attributes();
+        $this->attributes['rows']  = '5';
+        $this->attributes['class'] = 'widefat';
 
-		if ( ! empty( $this->struct['rows'] ) ) {
-			$this->attributes['rows'] = $this->struct['rows'];
-		}
+        if ( ! empty( $this->struct['rows'] ) ) {
+            $this->attributes['rows'] = $this->struct['rows'];
+        }
 
-	}
+    }
 
-	/**
-	 * Returns the main input field for rendering
-	 *
-	 * @since 1.0.0
-	 * @see \facetwp_map\ui\facetwp_map
-	 * @access public
-	 * @return string
-	 */
-	public function input() {
+    /**
+     * Returns the main input field for rendering
+     *
+     * @since 1.0.0
+     * @see \facetwp_map\ui\facetwp_map
+     * @access public
+     * @return string
+     */
+    public function input() {
 
-		return '<' . esc_html( $this->type ) . ' ' . $this->build_attributes() . '>' . esc_textarea( $this->get_value() ) . '</' . esc_html( $this->type ) . '>';
-	}
+        return '<' . esc_html( $this->type ) . ' ' . $this->build_attributes() . '>' . esc_textarea( $this->get_value() ) . '</' . esc_html( $this->type ) . '>';
+    }
 
 }
