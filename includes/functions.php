@@ -37,6 +37,7 @@ function facetwp_map_autoload_class( $class ) {
  * @since 1.0.0
  */
 function facetwp_map() {
+
 	$request_data = array(
 		'post'    => $_POST,
 		'get'     => $_GET,

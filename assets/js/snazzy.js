@@ -56,14 +56,17 @@
     function snazzy_filters() {
         var filter_template = Handlebars.compile($('#snazzy-filters-tmpl').html());
 
+        // disable
+        $(document).off('facetwp_map.save', init_handlers);
         // get json
         $.getJSON('https://snazzymaps.com/types.json?key=' + key.val(), function (r) {
             filters.html(filter_template(r));
             snazzy_handler();
             query = [];
             if( !r.message ) {
-                $(document).off('facetwp_map.save', init_handlers);
                 $(document).off('facetwp_map.init', init_snazzy_nav);
+            }else{
+                $(document).on('facetwp_map.save', init_handlers);
             }
         });
     }

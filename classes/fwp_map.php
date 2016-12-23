@@ -50,7 +50,6 @@ class FWP_Map {
 		add_filter( 'facetwp_shortcode_html', array( $this, 'shortcode' ), 10, 2 );
 		// add filter to get the ID's
 		add_filter( 'facetwp_render_output', array( $this, 'locations_data' ), 10, 2 );
-
 	}
 
 	/**
@@ -81,7 +80,7 @@ class FWP_Map {
 
 		if ( isset( $atts['map'] ) ) {
 			$map_config = $this->map_config();
-			$height = isset( $atts['height'] ) ? $atts['height'] : $map_config['height'];
+			$height     = isset( $atts['height'] ) ? $atts['height'] : $map_config['height'];
 			// add maps to facet assets
 			add_filter( 'facetwp_assets', array( $this, 'assets' ) );
 			ob_start();
@@ -93,6 +92,18 @@ class FWP_Map {
 
 		return $output;
 
+	}
+
+	/**
+	 * get general map config
+	 *
+	 * @since 1.0.0
+	 *
+	 */
+	private function map_config() {
+		$data = $this->admin_page->load_data();
+
+		return apply_filters( 'facetwp_map_config_args', $data['map'] );
 	}
 
 	/**
@@ -111,7 +122,7 @@ class FWP_Map {
 			'locations' => array(),
 		);
 		foreach ( $post_ids as $post_id ) {
-			$location = $this->location( $post_id );
+			$location = $this->get_location( $post_id );
 			if ( false === $location ) {
 				continue;
 			}
@@ -142,18 +153,6 @@ class FWP_Map {
 	}
 
 	/**
-	 * get general map config
-	 *
-	 * @since 1.0.0
-	 *
-	 */
-	private function map_config() {
-		$data = $this->admin_page->load_data();
-
-		return apply_filters( 'facetwp_map_config_args', $data['map'] );
-	}
-
-	/**
 	 * get display/init map config
 	 *
 	 * @since 1.0.0
@@ -173,9 +172,29 @@ class FWP_Map {
 	 * @since 1.0.0
 	 *
 	 */
-	private function location( $post_id ) {
-		$data     = $this->admin_page->load_data();
-		$location = get_post_meta( $post_id, $data['source']['location_field'], true );
+	private function get_location( $post_id ) {
+		$data = $this->admin_page->load_data();
+
+		switch ( $data['source']['source_type'] ) {
+			case 'single';
+				return $this->get_single_location( $post_id );
+			case 'split';
+				return $this->get_split_location( $post_id );
+		}
+
+		return false;
+	}
+
+	/**
+	 * build the single location
+	 *
+	 * @since 1.0.0
+	 *
+	 */
+	private function get_single_location( $post_id ) {
+		$data = $this->admin_page->load_data();
+
+		$location = get_post_meta( $post_id, $this->unprefix_field( $data['source']['location_field']['single'] ), true );
 		// has field
 		if ( empty( $location ) ) {
 			return false;
@@ -185,13 +204,68 @@ class FWP_Map {
 		if ( ! isset( $location[1] ) ) {
 			return false;
 		}
-		if ( 0 === floatval( trim( $location[0] ) ) || 0 === floatval( trim( $location[1] ) ) ) {
+		// create parts
+		$parts = array(
+			floatval( trim( $location['0'] ) ),
+			floatval( trim( $location['1'] ) ),
+		);
+		// no part can have a 0
+		if ( in_array( 0, $parts ) ) {
 			return false;
 		}
 
+		// check order
+		switch ( $data['source']['single_order'] ) {
+			case 'lat_lng';
+				return array(
+					'lat' => $parts['0'],
+					'lng' => $parts['1'],
+				);
+			case 'lng_lat';
+				return array(
+					'lat' => $parts['1'],
+					'lng' => $parts['0'],
+				);
+		}
+
+		// nothing worked.
+		return false;
+
+	}
+
+	/**
+	 * unprefix field source
+	 *
+	 * @since 1.0.0
+	 *
+	 */
+	private function unprefix_field( $field ) {
+
+		if ( 'cf/' == substr( $field, 0, 3 ) ) {
+			$field = substr( $field, 3 );
+		}
+
+		// make support for more custom types
+
+		return $field;
+	}
+
+	/**
+	 * construct the split location
+	 *
+	 * @since 1.0.0
+	 *
+	 */
+	private function get_split_location( $post_id ) {
+		$data = $this->admin_page->load_data();
+
+		$lat = get_post_meta( $post_id, $this->unprefix_field( $data['source']['location_field']['lat'] ), true );
+		$lng = get_post_meta( $post_id, $this->unprefix_field( $data['source']['location_field']['lng'] ), true );
+
+		// filter maybe?
 		return array(
-			'lat' => floatval( trim( $location['0'] ) ),
-			'lng' => floatval( trim( $location['1'] ) ),
+			'lat' => floatval( $lat ),
+			'lng' => floatval( $lng ),
 		);
 	}
 
@@ -285,8 +359,16 @@ class FWP_Map {
 	 * @since 1.0.0
 	 */
 	public function register_admin() {
-
-		$this->admin_page = facetwp_map()->add( 'page', 'fwp_map', $this->admin_core_page() );
+		// check FacetWP is installed and activated.
+		if ( ! defined( 'FACETWP_VERSION' ) ) {
+			if ( is_admin() ) {
+				global $fwpm_message;
+				$fwpm_message = __( 'FacetWP Map requires that FacetWP be installed and activated.', 'facetwp' );
+				add_action( 'admin_notices', 'fwp_map_php_ver' );
+			}
+		} else {
+			$this->admin_page = facetwp_map()->add( 'page', 'fwp_map', $this->admin_core_page() );
+		}
 
 	}
 

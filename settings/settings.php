@@ -1,7 +1,7 @@
 <?php
 
 /**
- * FWP_Map General Settings
+ * FWP_Map Settings config
  *
  * @package   facetwp_map
  * @author    David Cramer
@@ -74,16 +74,60 @@ $settings = array(
 				),
 			),
 		),
-
 	),
 	'source'    => array(
-		'label'   => __( 'Data Sources', 'facetwp' ),
-		'control' => array(
-			'location_field' => array(
-				'label'       => __( 'Location Field', 'facetwp' ),
-				'description' => __( 'Custom Field slug that contains the location.', 'facetwp' ),
-				'value'       => 'location',
-				'type'        => 'text',
+		'label' => __( 'Data Sources', 'facetwp' ),
+		'grid'  => array(
+			'id'  => 'source_grid',
+			'row' => array(
+				array(
+					'column' => array(
+						array(
+							'size'    => 'col-sm-6',
+							'control' => array(
+								'source_type'  => array(
+									'label'       => __( 'Source Type', 'facetwp' ),
+									'description' => __( 'Select the type of coordinates source.', 'facetwp' ),
+									'value'       => 'single',
+									'type'        => 'select',
+									'choices'     => array(
+										'single' => __( 'Single, comma separated', 'facetwp' ),
+										'split'  => __( 'Separate latitude and longitude fields', 'facetwp' ),
+									),
+								),
+								'single_order' => array(
+									'label'       => __( 'Coordinates Order ', 'facetwp' ),
+									'description' => __( 'Set the order of the comma separation', 'facetwp' ),
+									'value'       => 'type',
+									'type'        => 'select',
+									'value'       => 'lat_lng',
+									'choices'     => array(
+										'lat_lng' => __( 'latitude, longitude', 'facetwp' ),
+										'lng_lat' => __( 'longitude, latitude', 'facetwp' ),
+									),
+								),
+							),
+						),
+						array(
+							'size'    => 'col-sm-6',
+							'control' => array(
+								'location_field' => array(
+									'label'       => __( 'Location Field', 'facetwp' ),
+									'description' => __( 'Custom Field slug that contains the coordinates.', 'facetwp' ),
+									'value'       => 'location',
+									'type'        => 'template',
+									'template'    => FWP_MAP_PATH . 'includes/location-selector.php',
+									'style'       => array(
+										'fselect' => FACETWP_URL . '/assets/js/fSelect/fSelect.css',
+									),
+									'script'      => array(
+										'fselect' => FACETWP_URL . '/assets/js/fSelect/fSelect.js',
+									),
+								),
+							),
+						),
+					),
+				),
 			),
 		),
 	),
