@@ -31,7 +31,7 @@ $value = $this->get_value();
     <div id="message" class="notice notice-error"><p>{{message}}</p></div>
     {{else}}
     <select id="snazzy-order">
-        <option value=""><?php esc_html_e( 'Order by', 'facetwp' ); ?>&hellip;</option>
+        <option value=""><?php esc_html_e( 'Sort by', 'facetwp' ); ?>&hellip;</option>
         {{#each sortOrders}}
         <option value="{{slug}}">{{name}}</option>
         {{/each}}
@@ -119,6 +119,6 @@ $value = $this->get_value();
         </div>
     </div>
     {{else}}
-    <div id="message" class="notice notice-warning"><p><?php echo esc_html__('No styles found.', 'facetwp'); ?></p></div>
+    <div id="message" class="notice notice-warning"><p><?php echo esc_html__( 'No styles found.', 'facetwp' ); ?></p></div>
     {{/if}}
 </script>

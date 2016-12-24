@@ -119,6 +119,5 @@
         snazzy_handler();
     });
 
-
 })
 (jQuery);

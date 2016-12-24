@@ -74,7 +74,7 @@ $settings = array(
         ),
     ),
     'source'    => array(
-        'label' => __( 'Data', 'facetwp' ),
+        'label' => __( 'Source', 'facetwp' ),
         'grid'  => array(
             'id'  => 'source_grid',
             'row' => array(
@@ -128,7 +128,7 @@ $settings = array(
         ),
     ),
     'map_style' => array(
-        'label'   => __( 'Map', 'facetwp' ),
+        'label'   => __( 'Map Design', 'facetwp' ),
         'control' => array(
             'snazzy' => array(
                 'label'    => __( 'Select a Snazzy Map', 'facetwp' ),
