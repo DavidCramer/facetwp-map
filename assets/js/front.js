@@ -36,9 +36,7 @@ function facetwpMapInit() {
     facetwp_map.fitBounds(bounds);
 
     // set options
-    facetwp_map.setOptions( FWP.settings.map.init );
-    console.log( FWP.settings.map.init );
-
+    facetwp_map.setOptions(FWP.settings.map.init);
 }
 
 function facetwpMapReset() {
@@ -56,10 +54,20 @@ function facetwpMapReset() {
 }
 
 jQuery(function ($) {
+    var facetwp_init_map = true;
     $(document).on('facetwp-loaded', function () {
-        facetwpMapInit();
+        if( true === facetwp_init_map ) {
+            facetwpMapInit();
+        }else{
+            facetwp_init_map = true;
+        }
     });
     $(document).on('facetwp-refresh', function () {
-        facetwpMapReset();
+        // determine reload
+        if (true === FWP.soft_refresh && 'all' === FWP.settings.map.config.result_count) {
+            facetwp_init_map = false;
+        }else{
+            facetwpMapReset();
+        }
     });
 });
