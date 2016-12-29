@@ -1,0 +1,19 @@
+{
+  "name": "facetwp-map",
+  "version": "1.0.0",
+  "description": "Generates a map alongside FacetWP results",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FacetWP/facetwp-map"
+  },
+  "author": "FacetWP, LLC",
+  "license": "GPLv2+",
+  "bugs": {
+    "url": "https://github.com/FacetWP/facetwp-map/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-uglify": "~0.2.4",
+    "grunt-contrib-cssmin": "~0.6.2"
+  }
+}
