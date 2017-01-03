@@ -1,0 +1,18 @@
+{
+  "name": "FacetWP/facetwp-map",
+  "description": "",
+  "keywords": ["wordpress", "plugin", "facet", "map"],
+  "homepage": "https://facetwp.com/add-ons/map/",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "David Cramer",
+      "email": "",
+      "homepage": ""
+    }
+  ],
+  "type": "wordpress-plugin",
+  "require": {
+    "php": ">=5.3.2"
+  }
+}
