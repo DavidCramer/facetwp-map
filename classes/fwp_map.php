@@ -321,7 +321,7 @@ class FWP_Map {
         }
         // check for clustering
         if ( ! empty( $data['map']['group_markers'] ) ) {
-            $assets['cluster-gmaps'] = '//developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js';
+            $assets['markerclusterer.js'] = FWP_MAP_URL . 'assets/js/markerclusterer.js';
         }
         // add front styles
         $assets['fwpm-front.css'] = FWP_MAP_URL . 'assets/css/front.min.css';
