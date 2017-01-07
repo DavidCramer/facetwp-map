@@ -194,7 +194,16 @@ class FWP_Map {
     private function get_single_location( $post_id ) {
         $data = $this->admin_page->load_data();
 
-        $location = get_post_meta( $post_id, $this->unprefix_field( $data['source']['location_field']['single'] ), true );
+        if( substr( $data['source']['location_field']['single'], 0, 4 ) === 'acf/' && function_exists( 'get_field' ) ){
+            $field = get_field( substr( $data['source']['location_field']['single'],4 ), $post_id );
+            if( !empty( $field['address'] ) ){
+                unset( $field['address'] );
+                $location = implode(',', $field );
+                $data['source']['single_order'] = 'lat_lng';
+            }
+        }else {
+            $location = get_post_meta( $post_id, $this->unprefix_field( $data['source']['location_field']['single'] ), true );
+        }
         // has field
         if ( empty( $location ) ) {
             return false;
