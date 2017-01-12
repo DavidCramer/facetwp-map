@@ -209,7 +209,7 @@ class FWP_Map {
             return false;
         }
         // is format correct
-        $location = explode( ',', $location );
+        $location = explode( ',', trim( $location, '()' ) );
         if ( ! isset( $location[1] ) ) {
             return false;
         }
