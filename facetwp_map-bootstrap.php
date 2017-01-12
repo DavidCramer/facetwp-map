@@ -16,7 +16,7 @@ if ( defined( 'WPINC' ) ) {
         define( 'FWP_MAP_CORE', __FILE__ );
         define( 'FWP_MAP_PATH', plugin_dir_path( __FILE__ ) );
         define( 'FWP_MAP_URL', plugin_dir_url( __FILE__ ) );
-        define( 'FWP_MAP_VER', '1.0.1' );
+        define( 'FWP_MAP_VER', '1.0.2' );
     }
     if ( ! defined( 'FWP_MAP_ASSET_DEBUG' ) ) {
         if ( ! defined( 'DEBUG_SCRIPTS' ) ) {
