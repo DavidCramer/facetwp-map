@@ -2,7 +2,7 @@
 /*
 Plugin Name: FacetWP - Map
 Description: Generates a map alongside FacetWP results
-Version: 1.0.2
+Version: 1.0.3
 Author: FacetWP, LLC
 Author URI: https://facetwp.com/
 GitHub URI: facetwp/facetwp-map
@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) or exit;
 define( 'FWP_MAP_PATH', plugin_dir_path( __FILE__ ) );
 define( 'FWP_MAP_CORE', __FILE__ );
 define( 'FWP_MAP_URL', plugin_dir_url( __FILE__ ) );
-define( 'FWP_MAP_VER', '1.0.2' );
+define( 'FWP_MAP_VER', '1.0.3' );
 
 if ( ! version_compare( PHP_VERSION, '5.3.0', '>=' ) ) {
     if ( is_admin() ) {
