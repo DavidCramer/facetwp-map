@@ -1,18 +1,11 @@
 {
-  "name": "FacetWP/facetwp-map",
-  "description": "",
-  "keywords": ["wordpress", "plugin", "facet", "map"],
-  "homepage": "https://facetwp.com/add-ons/map/",
-  "license": "",
-  "authors": [
-    {
-      "name": "David Cramer",
-      "email": "",
-      "homepage": ""
+    "name": "FacetWP/facetwp-map",
+    "type": "wordpress-plugin",
+    "description": "Map add-on for FacetWP",
+    "keywords": ["wordpress", "plugin", "facetwp", "map"],
+    "homepage": "https://facetwp.com/add-ons/map/",
+    "license": "GPL-2.0+",
+    "require": {
+        "php": ">=5.4"
     }
-  ],
-  "type": "wordpress-plugin",
-  "require": {
-    "php": ">=5.3.2"
-  }
 }
