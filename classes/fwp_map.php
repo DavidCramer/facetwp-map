@@ -163,6 +163,9 @@ class FWP_Map {
         // convert styles json
         $data['map_style']['styles'] = json_decode( $data['map_style']['styles'] );
 	    // set zoom
+	    if ( ! isset( $data['map']['zoom'] ) ) {
+		    $data['map']['zoom'] = 14;
+	    }
 	    $data['map_style']['maxZoom'] = (int) $data['map']['zoom'];
 
         return apply_filters( 'facetwp_map_init_args', $data['map_style'] );
