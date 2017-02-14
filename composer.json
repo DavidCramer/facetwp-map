@@ -1,0 +1,11 @@
+{
+    "name": "FacetWP/facetwp-map",
+    "type": "wordpress-plugin",
+    "description": "Map add-on for FacetWP",
+    "keywords": ["wordpress", "plugin", "facetwp", "map"],
+    "homepage": "https://facetwp.com/add-ons/map/",
+    "license": "GPL-2.0+",
+    "require": {
+        "php": ">=5.4"
+    }
+}
