@@ -31,7 +31,7 @@ $settings = array(
                             ),
                         ),
                         array(
-                            'size'    => 'col-sm-6',
+                            'size'    => 'col-sm-3',
                             'control' => array(
                                 'height' => array(
                                     'label'       => __( 'Map Height', 'facetwp' ),
@@ -40,6 +40,16 @@ $settings = array(
                                 ),
                             ),
                         ),
+	                    array(
+		                    'size'    => 'col-sm-3',
+		                    'control' => array(
+			                    'zoom' => array(
+				                    'label'       => __( 'Max Zoom', 'facetwp' ),
+				                    'value'       => 14,
+				                    'type'        => 'number',
+			                    ),
+		                    ),
+	                    ),
                     ),
                 ),
                 array(
