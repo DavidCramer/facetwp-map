@@ -123,7 +123,7 @@ class FWP_Map {
         );
         foreach ( $post_ids as $post_id ) {
             $location = $this->get_location( $post_id );
-            if ( false === $location ) {
+	        if ( false === $location || empty( $location['lat'] ) || empty( $location['lng'] ) ) {
                 continue;
             }
             $return['settings']['map']['locations'][] = $this->get_structure( $post_id, $location );
