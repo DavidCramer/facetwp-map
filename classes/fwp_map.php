@@ -401,7 +401,7 @@ class FWP_Map{
 			'header'     => array(
 				'id'          => 'admin_header',
 				'label'       => __( 'FacetWP - Map', 'facetwp' ),
-				'description' => __( '1.0', 'facetwp' ),
+				'description' => FWP_MAP_VER,
 				'control'     => array(
 					'sep'  => array(
 						'type' => 'separator',
