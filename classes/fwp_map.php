@@ -396,15 +396,22 @@ class FWP_Map{
 			'parent'     => 'options-general.php',
 			'base_color' => '#906dbe',
 			'attributes' => array(
-				'data-autosave' => true,
+				'data-autosave' => false,
 			),
 			'header'     => array(
 				'id'          => 'admin_header',
 				'label'       => __( 'FacetWP - Map', 'facetwp' ),
 				'description' => __( '1.0', 'facetwp' ),
 				'control'     => array(
-					array(
+					'sep'  => array(
 						'type' => 'separator',
+					),
+					'save' => array(
+						'label'      => __( 'Save Changes', 'facetwp' ),
+						'type'       => 'button',
+						'attributes' => array(
+							'class' => 'page-title-action',
+						),
 					),
 				),
 			),

@@ -31,7 +31,12 @@ var facetwp_map_edit_state = false;
 
                     $(ev.originalEvent.explicitOriginalTarget).prop('disabled', false).removeClass('disabled');
                 }else{
-                    spinner.remove();
+                    spinner.removeClass( 'spinner' ).addClass('dashicons dashicons-yes');
+                    setTimeout( function(){
+                        spinner.fadeOut( 1000, function(){
+                            spinner.remove();
+                        });
+                    }, 1000 );
                     obj.params.trigger.find('.ajax-triggered').removeClass('ajax-triggered');
                 }
                 facetwp_map_edit_state = false;
